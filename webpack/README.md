@@ -47,8 +47,8 @@ example webpack.config.js:
 `npm run raw`:
 This is with mode = `none`
 
-[Raw Image Bytes](./git_imgs/raw_bytes.png)
-[Raw Image Code](./git_imgs/raw_code.png)
+![Raw Image Bytes](./git_imgs/raw_bytes.png)
+![Raw Image Code](./git_imgs/raw_code.png)
 
 Stats:
 - Size: 548kB
@@ -59,15 +59,15 @@ This is with mode = `development`
 
 Surprisingly, dev has more bytes overall, although significantly less LOCs overall
 
-[Dev Image Bytes](./git_imgs/dev_bytes.png)
-[Dev Image Code](./git_imgs/dev_code.png)
+![Dev Image Bytes](./git_imgs/dev_bytes.png)
+![Dev Image Code](./git_imgs/dev_code.png)
 
 Stats:
 - Size: 568kB
 - LOC: 132
 
-[Prod Image Bytes](./git_imgs/prod_bytes.png)
-[Prod Image Code](./git_imgs/prod_code.png)
+![Prod Image Bytes](./git_imgs/prod_bytes.png)
+![Prod Image Code](./git_imgs/prod_code.png)
 
 `npm run build`:
 This is with mode = `production`
