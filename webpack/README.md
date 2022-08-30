@@ -44,7 +44,7 @@ example webpack.config.js:
 
 - from the toy example in thid directory, we want to try out the three modes and compare the JS size
 
-`npm run raw`:
+[A] `npm run raw`:
 This is with mode = `none`
 
 ![Raw Image Bytes](./git_imgs/raw_bytes.png)
@@ -54,7 +54,7 @@ Stats:
 - Size: 548kB
 - LOC: 17,234
 
-`npm run dev`:
+[B] `npm run dev`:
 This is with mode = `development`
 
 Surprisingly, dev has more bytes overall, although significantly less LOCs overall
@@ -66,11 +66,11 @@ Stats:
 - Size: 568kB
 - LOC: 132
 
+[C] `npm run build`:
+This is with mode = `production`
+
 ![Prod Image Bytes](./git_imgs/prod_bytes.png)
 ![Prod Image Code](./git_imgs/prod_code.png)
-
-`npm run build`:
-This is with mode = `production`
 
 Stats:
 - Size: 71.2kB
