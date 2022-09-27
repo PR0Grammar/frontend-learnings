@@ -4,11 +4,19 @@
 
 ## Overview
 
-### What is performance
+### What is web perf?
+
+- __Web performnace__ primarily refers to the speed at which a website loads. It's not exclusively speed of website loadups, but it's a huge component.
 
 - __User perceived performance (UPP)__ is what really matters for users. Sight, touch, hearing - these feedbacks are what users experience in response to touch, movement, speech. 1M DB transactions/sec with bad UX may not be a better than 1K transactions/sec with smooth and responsive UX.
 
 - We should still strive to optimize code in conjunction with user-perceived performance.
+
+## Why perf matters?
+
+- The obvious here is $$. Slower sites ultimately affect he bottom line (milliseconds matter!).
+
+- Page speed is also a factor for page ranking for search engines like Google.
 
 ## Key Metrics
 
@@ -87,6 +95,4 @@
 - Modern CPUs can enter lower-power states when mostly idle. Minimize the number of timers, animations, events that fire, preventing the CPU from entering low power mode.
 
 -- When applications are sent to the background, a [`visibilitychange`](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event) event is fired on the document. When set to `hidden`, pages can stop making UI updates and stop any tasks that the user doesn't want to have running in the background.
-
-### Specific coding tips for application performance
 
