@@ -42,3 +42,6 @@
 
 ### Optimizing images
 
+- Depending on some set of conditions, you can optimize around the quality of image. If the user has a high DPI device, for example, a larger set of images provides a better visual experience, and for standard DPI, we can get away with some loss in quality.
+
+
