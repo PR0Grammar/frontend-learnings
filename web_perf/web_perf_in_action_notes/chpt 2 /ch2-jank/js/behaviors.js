@@ -35,6 +35,7 @@ $(function(){
 	$(function(){
 		// Modal open
 		$("#schedule").click(function(){
+			console.timeStamp('Modal open.');
 			// Change body visibility
 			$("body").addClass("locked");
 

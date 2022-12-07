@@ -77,3 +77,23 @@ This chapter covers tools and techniques to assess web perf. Most of the notes h
 
 
 ### Marking points in the timeline with JS
+
+- Chrome Dev Tools allows developers to mark parts of a timeline in JS.
+    - To do this, use `console.timeStamp(<string marker>)`
+
+- Using markers allows you to narrow down what you're looking for to a specific time without having to slog through entire set of data
+
+### Benchmarking JS in Chrome
+
+- Using `console.time` and `console.timeEnd` methods, we can benchmark code.
+    - These methods accept a string that's used to label the benchmark session similar to `console.timeStamp`
+
+- There is also `performance` API.
+
+## Simulating and Monitoring Devices
+
+### Debugging websites remotely
+
+- **Remote Debugging** allows you to debug using the Chrome Dev Tools with a connected Android device. It mirrors the device's display on the host machine, and provides a similar UI and UX as desktop debugging
+
+- For iOS devices, you can utilize Safari with a Mac in a similar way
