@@ -1,9 +1,9 @@
 # Worker Threads
 
 Refs:
-- https://web.dev/learn/pwa/service-workers/
-- https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
-
+- MDN: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
+- Lifecycle of Service Worker: https://web.dev/service-worker-lifecycle/
+- From PWA perspective: https://web.dev/learn/pwa/service-workers/
 
 ## Web Workers
 
@@ -40,6 +40,13 @@ Refs:
     6. Next is **activation**. When the service worker is installed, it then receieves an activate event. The primary use of `onactivate` is for **cleanup of resources** used in previous versions of a Service worker script.
     7. The Service Worker **will now control pages**, but only after the `register()` is successful. In other words, **documents will have to be reloaded** to actually be controlled, because a document starts life with or without a Service worker and maintains that for its lifetime.
 
+- In more detail v2:
+    - `install` event is first event a service worker gets and only happens once
+    - A promise is passed to `installEvent.waitUntil()` signals the duration and success or failure of your install
+    - The service worker won't receieve events like `fetch` and `push` until it successfully finishes installing and becomes "active"
+    - *** By default, a page's fetches won't go through a service worker unless the page request itself went through a service worker. So you'll need to refresh the page to see the effects
+        - `client.claim()` can override this default, and take control of non-controlled pages
+
 - Common reasons to failing to register a service worker:
     1. You are not running your app through HTTPS
     2. The path of your service worker file is not written correctly - it must be written **RELATIVE** to the origin, not your app's root directory.
@@ -54,3 +61,8 @@ Refs:
     - Store page markup in the cache, but only serve markup from the cache in offline scenarios.
     - Serve stale responses for certain assets from the cache, but update it from the network in the background.
     - Stream partial content from the network and assemble it with an app shell from the cache to improve perceptual performance.
+
+### Scope and control
+
+- Default scope of a service worker is `./` relative to the script URL
+    eg. if SW is regsitered at `//example.com/foo/bar.js` the default scope is `//example.com/foo/`
