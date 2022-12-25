@@ -9,16 +9,61 @@ Refs:
 
 [TODO]
 
-
 ## Shared Workers
 
-[TODO]
+- Shared workers is a worker that can be accessed from several browser contexts, such as windows, iframes and even other workers!
+
+- In order for all the browser contexts to share the Shared Worker, they must share the same protocol, host and port. 
+
+- They are auto-terminated once all clients (eg. all tabs) have disconnected, but can also be manually killed via `terminate()` from the main thread or `self.close()` from within the worker
+
+- Unlike web workers, clients must communicate via the `port` object on the worker object. These `ports` differeniate message channels from the different clients.
+
+- To spin one up:
+    1. On client
+        1. Attach event listener for messages
+        2. call `start()` on `MessagePort` object (must be done before any `postMessage()` calls)
+    2. On worker
+        1.  add `onconnect` event listener to add event listener to messsages on the `MessagePort`
+        2. Call `start()` on the `MessagePort` object
+
+```JS
+// Client
+const worker = new SharedWorker("jsworker.js");
+
+worker.port.addEventListener("message", function(e) {
+	alert(e.data);
+}, false);
+
+worker.port.start();
+
+// post a message to the shared web worker
+worker.port.postMessage("ME!");
+```
+
+```JS
+// Shared worker
+self.addEventListener("connect", function (e) {
+
+	var port = e.ports[0];
+	connections++;
+
+	port.addEventListener("message", function (e) {
+		port.postMessage("Hello " + e.data + " (port #" + connections + ")");
+	}, false);
+
+	port.start();
+
+}, false);
+```
 
 ## Service Workers
 
 - Service workers are a special kind of web wroker that can be installed in your browser and provide special features previously unavailable to regular web pages
 
 - Service Workers run on a separate thread, which means you don't have access to things in the main thread including DOM, several APIs, or Cookies. They act as proxies between web browsers and web servers, and improve reliability by providing **offline access**, and **boost page performance**.
+
+- Service workers are short-lived. They usually spin up in response to events like `fetch`, `push` and `message`, but will, in all likelihood, be torn down many times while browsing a page.
 
 ### Lifecycle
 

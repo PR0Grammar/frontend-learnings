@@ -21,7 +21,7 @@ const log = (msg) => {
     console.log('FROM SW: ' + msg)
 }
 
-// #INSTALLATION: Setup worker specific resources
+// # INSTALLATION: Setup worker specific resources
 //
 // For this step, we setup pre-caches for the resources in PRECACHE_URLS
 self.addEventListener('install', (event) => {
@@ -53,7 +53,7 @@ self.addEventListener('activate', event => {
     );
 })
 
-// # Intercept network requests
+// # Intercept Network Requests
 //
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
