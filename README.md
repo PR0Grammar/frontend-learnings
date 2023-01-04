@@ -8,3 +8,5 @@
 - [Web Perf](https://github.com/PR0Grammar/frontend-learnings/tree/main/web_perf)
 
 - [Worker Threads](https://github.com/PR0Grammar/frontend-learnings/tree/main/worker_threads)
+
+- [React In Depth](https://github.com/PR0Grammar/frontend-learnings/tree/main/react_in_depth)
