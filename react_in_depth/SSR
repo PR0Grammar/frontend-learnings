@@ -1,0 +1,17 @@
+
+
+## Hydration vs Render
+
+- React hydration is a techique similar to rendering, *except* you don't start out with an empty DOM to render all your React components into. The markup is already pre-built on the server.
+ 
+- The hydration step is we will take the pre-built HTML, compare it the component tree, then refresh it with live React components, which will add all the event listeners and JS to make the app fully functional.
+
+- With SSR, the site can *look* ready faster (HTML ready *before* JS is executed). This elimnates the "blank page" problem of client side rendering (empty DOM).
+
+- Why is hydration needed? 
+  - Simply, it allows you to serve the client a complete HTML document with all the data, copy and elements that need to be there. 
+    - This speeds up initial load times and allows for proper SEO crawling
+    
+
+- Libraries that wrap around React, like Gatsy, integrate well for SSR.
+  - Gatsy has a build process to compile the site, including optimizing static resources
